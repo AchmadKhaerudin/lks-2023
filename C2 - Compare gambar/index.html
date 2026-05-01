@@ -1,0 +1,69 @@
+<!-- C2: Compare Image -->
+<div class="compare-container">
+    <!-- Gambar 1 (Background/Normal) -->
+    <div class="img-box original"></div>
+    <!-- Gambar 2 (Overaly/Grayscale) -->
+    <div class="img-box overlay" id="overlay"></div>
+    
+    <!-- Slider Kontrol -->
+    <input type="range" min="0" max="100" value="50" class="slider" id="slider">
+</div>
+
+<style>
+.compare-container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.img-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('photo-1501785888041-af3ef285b470.jpg'); /* Asset Contoh */
+    background-size: 600px 400px;
+}
+
+.overlay {
+    filter: grayscale(100%);
+    width: 50%; /* Nilai awal sesuai slider */
+    border-right: 3px solid white;
+}
+
+.slider {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    margin: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    cursor: ew-resize;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+</style>
+
+<script>
+const slider = document.getElementById('slider');
+const overlay = document.getElementById('overlay');
+
+slider.addEventListener('input', (e) => {
+    overlay.style.width = e.target.value + '%';
+});
+</script>

@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "services": "Layanan",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "title": "Selamat Datang di Portofolio Saya",
+    "subtitle": "Saya adalah pengembang web profesional."
+  },
+  "features": {
+    "f1": "Desain Modern",
+    "f2": "Cepat & Ringan",
+    "f3": "Multi Bahasa",
+    "f4": "Responsif"
+  }
+}

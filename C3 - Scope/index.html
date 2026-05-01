@@ -1,0 +1,52 @@
+<!-- C3: Scope -->
+<div class="scope-wrapper">
+    <!-- Teks Tersembunyi -->
+    <div class="hidden-text">
+        <h1>RAHASIA TERBONGKAR</h1>
+        <p>Teks ini hanya bisa dibaca menggunakan lensa khusus.</p>
+    </div>
+    
+    <!-- Lensa (Scope) -->
+    <div class="scope" id="scope"></div>
+</div>
+
+<style>
+.scope-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: none; /* Sembunyikan kursor asli */
+}
+
+.hidden-text {
+    color: #222; /* Hampir sama dengan background hitam agar "tersembunyi" */
+    font-size: 5rem;
+    text-align: center;
+    user-select: none;
+}
+
+.scope {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: white; /* Memberi warna putih agar teks di bawahnya terlihat */
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference; /* KUNCI: Membuat teks kontras saat dilewati lensa */
+    transform: translate(-50%, -50%); /* Agar kursor tepat di tengah lensa */
+}
+</style>
+
+<script>
+const scope = document.getElementById('scope');
+
+document.addEventListener('mousemove', (e) => {
+    scope.style.left = e.clientX + 'px';
+    scope.style.top = e.clientY + 'px';
+});
+</script>

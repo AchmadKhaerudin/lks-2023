@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.container {
+    width: 960px;
+    height: 960px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Membagi 3 kolom vertikal */
+    gap: 0 1rem; /* Jarak antar kolom vertikal */
+}
+
+.row {
+    display: grid;
+    gap: 1rem; /* Jarak antar kotak di dalam kolom */
+}
+
+.fill {
+    background-color: #aaa; /* Warna abu-abu sesuai gambar */
+}
+
+/* --- Pengaturan Rasio Tinggi Setiap Kolom --- */
+
+/* Kolom 1: Sesuai gambar kodingmu */
+.row:nth-child(1) {
+    grid-template-rows: 5fr 3fr 3fr;
+}
+
+/* Kolom 2: Variasi agar masonry (Atas pendek, Tengah panjang) */
+.row:nth-child(2) {
+    grid-template-rows: 2fr 6fr 3fr;
+}
+
+/* Kolom 3: Variasi agar masonry (Bawah panjang) */
+.row:nth-child(3) {
+    grid-template-rows: 10fr 8fr 15fr;
+}

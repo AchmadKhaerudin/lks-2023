@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Analytics - LKS Speedtest</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #000;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+        h2 { font-size: 1.5rem; margin-bottom: 20px; }
+        ul { list-style-type: none; padding-left: 20px; }
+        li { margin: 10px 0; font-size: 1.1rem; }
+        .word-list { margin-left: 20px; color: #aaa; }
+        .highlight { color: #00ff00; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="analytics-result">
+    <p>Memuat data analitik...</p>
+</div>
+
+<script>
+    async function loadAnalytics() {
+        try {
+            const response = await fetch('log_pesan.json');
+            const data = await response.json();
+
+            // 1. Filter data berdasarkan pengirim
+            const userMsgs = data.filter(m => m.pengirim === 'user');
+            const botMsgs = data.filter(m => m.pengirim === 'bot');
+
+            // 2. Hitung Total Pesan
+            const totalSent = userMsgs.length;
+            const totalReceived = botMsgs.length;
+
+            // 3. Hitung Rata-rata Panjang Karakter
+            const avgLenSent = Math.round(userMsgs.reduce((acc, cur) => acc + cur.pesan.length, 0) / totalSent);
+            const avgLenReceived = Math.round(botMsgs.reduce((acc, cur) => acc + cur.pesan.length, 0) / totalReceived);
+
+            // 4. Hitung Top 5 Sent Words (User)
+            const wordMap = {};
+            userMsgs.forEach(m => {
+                // Bersihkan tanda baca dan ubah ke huruf kecil
+                const words = m.pesan.toLowerCase().replace(/[.,?!]/g, '').split(' ');
+                words.forEach(word => {
+                    if(word.length > 1) { // mengabaikan huruf tunggal jika perlu
+                        wordMap[word] = (wordMap[word] || 0) + 1;
+                    }
+                });
+            });
+
+            const top5Words = Object.entries(wordMap)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            // 5. Render ke HTML
+            renderUI({
+                top5Words,
+                totalSent,
+                totalReceived,
+                avgLenSent,
+                avgLenReceived
+            });
+
+        } catch (error) {
+            document.getElementById('analytics-result').innerHTML = "<p style='color:red'>Gagal memuat file JSON. Pastikan Anda menggunakan Live Server.</p>";
+            console.error(error);
+        }
+    }
+
+    function renderUI(stats) {
+        const container = document.getElementById('analytics-result');
+        
+        let wordListHtml = stats.top5Words.map(w => `<li>${w[0]} (${w[1]}x)</li>`).join('');
+
+        container.innerHTML = `
+            <ul>
+                <li><strong>Top 5 sent words:</strong>
+                    <ul class="word-list">
+                        ${wordListHtml}
+                    </ul>
+                </li>
+                <li>Total message sent: <span class="highlight">${stats.totalSent}</span></li>
+                <li>Total message received: <span class="highlight">${stats.totalReceived}</span></li>
+                <li>Average characters length sent: <span class="highlight">${stats.avgLenSent}</span></li>
+                <li>Average characters length received: <span class="highlight">${stats.avgLenReceived}</span></li>
+            </ul>
+        `;
+    }
+
+    loadAnalytics();
+</script>
+
+</body>
+</html>

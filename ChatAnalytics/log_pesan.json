@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "pengirim": "user",
+    "pesan": "Halo, saya butuh bantuan untuk koding proyek saya.",
+    "waktu": "2026-05-01T08:00:00Z"
+  },
+  {
+    "id": 2,
+    "pengirim": "bot",
+    "pesan": "Halo! Saya tentu bisa membantu proyek Anda. Apa yang sedang Anda kerjakan?",
+    "waktu": "2026-05-01T08:00:05Z"
+  },
+  {
+    "id": 3,
+    "pengirim": "user",
+    "pesan": "Saya ingin pakai kode grid untuk layout masonry saya.",
+    "waktu": "2026-05-01T08:01:10Z"
+  },
+  {
+    "id": 4,
+    "pengirim": "bot",
+    "pesan": "Layout masonry itu bagus! Anda menggunakan CSS Grid atau library khusus?",
+    "waktu": "2026-05-01T08:01:15Z"
+  },
+  {
+    "id": 5,
+    "pengirim": "user",
+    "pesan": "Bisakah Anda bantu saya dengan kode untuk grid tersebut?",
+    "waktu": "2026-05-01T08:02:20Z"
+  },
+  {
+    "id": 6,
+    "pengirim": "bot",
+    "pesan": "Tentu. Untuk grid masonry dasar, Anda bisa mengatur kolom dan menggunakan grid-row span.",
+    "waktu": "2026-05-01T08:02:25Z"
+  },
+  {
+    "id": 7,
+    "pengirim": "user",
+    "pesan": "Saya suka kode proyek ini karena ini proyek saya sendiri.",
+    "waktu": "2026-05-01T08:03:30Z"
+  },
+  {
+    "id": 8,
+    "pengirim": "bot",
+    "pesan": "Itu pola pikir yang hebat. Membuat koding sendiri membuat proyek lebih efektif.",
+    "waktu": "2026-05-01T08:03:35Z"
+  },
+  {
+    "id": 9,
+    "pengirim": "user",
+    "pesan": "Koding saya sudah jalan sekarang, terima kasih atas bantuan koding Anda.",
+    "waktu": "2026-05-01T08:04:40Z"
+  },
+  {
+    "id": 10,
+    "pengirim": "bot",
+    "pesan": "Sama-sama! Senang bisa membantu koding dan proyek Anda hari ini.",
+    "waktu": "2026-05-01T08:04:45Z"
+  }
+]

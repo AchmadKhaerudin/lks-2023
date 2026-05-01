@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional LP - i18n & Grid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo"><strong>DEV.CLASS</strong></div>
+        <ul class="nav-links">
+            <li><a href="#" data-i18n="nav.home">Home</a></li>
+            <li><a href="#" data-i18n="nav.services">Services</a></li>
+            <li><a href="#" data-i18n="nav.contact">Contact</a></li>
+            <li>
+                <select id="lang-select" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="id">Indonesia</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1 data-i18n="hero.title">Welcome to My Portfolio</h1>
+        <p data-i18n="hero.subtitle">I am a professional web developer.</p>
+    </header>
+
+    <main class="container">
+        <div class="masonry">
+            <div class="card row-span-2" data-i18n="features.f1">Modern Design</div>
+            <div class="card" data-i18n="features.f2">Fast & Lightweight</div>
+            <div class="card row-span-3" data-i18n="features.f3">Multi Language</div>
+            <div class="card row-span-2" data-i18n="features.f4">Responsive</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SMK RPL - Speedtest Module C5</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

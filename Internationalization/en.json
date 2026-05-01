@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Welcome to My Portfolio",
+    "subtitle": "I am a professional web developer."
+  },
+  "features": {
+    "f1": "Modern Design",
+    "f2": "Fast & Lightweight",
+    "f3": "Multi Language",
+    "f4": "Responsive"
+  }
+}

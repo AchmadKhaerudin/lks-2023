@@ -1,0 +1,40 @@
+Cara Memperbaiki (Windows)
+Karena kamu menjalankan project di folder D:\ (kemungkinan menggunakan PHP Standalone atau XAMPP), silakan ikuti langkah-langkah berikut:
+
+1. Cari File php.ini
+Buka folder tempat kamu menginstal PHP (misal: C:\php atau C:\xampp\php).
+
+Cari file bernama php.ini. Jika ada dua (misal php.ini-development), gunakan yang namanya hanya php.ini.
+
+2. Aktifkan Ekstensi GD
+Buka file php.ini menggunakan Notepad atau VS Code.
+
+Tekan Ctrl + F dan cari kata kunci: extension=gd.
+
+Biasanya di depannya ada tanda titik koma (;), contohnya: ;extension=gd.
+
+Hapus tanda titik koma (;) tersebut agar menjadi:
+
+extension=gd
+
+3. Pastikan extension_dir Benar
+Di dalam file yang sama, cari extension_dir = "ext".
+
+Pastikan baris ini tidak memiliki tanda ; di depannya. Ini memberitahu PHP di mana letak file-file pustaka tambahannya.
+
+4. Restart Server
+Jika kamu menjalankan server lewat terminal menggunakan php -S localhost:8000, kamu wajib mematikan server tersebut (Ctrl + C) dan menjalankannya ulang.
+
+Jika menggunakan XAMPP, klik Stop lalu Start kembali pada modul Apache.
+
+Cara Cek Apakah GD Sudah Aktif
+Untuk memastikan solusinya berhasil, kamu bisa membuat satu file baru bernama info.php berisi:
+
+PHP
+<?php
+phpinfo();
+?>
+Akses file tersebut di browser, lalu tekan Ctrl + F dan cari kata "gd". Jika muncul tabel berjudul "gd" dengan status "enabled", berarti fitur watermark kamu sudah siap dijalankan!
+
+Kenapa Harus GD?
+GD Library adalah standar industri untuk memproses gambar secara dinamis. Tanpanya, PHP hanya bisa memproses teks dan data, bukan piksel. Setelah ini aktif, kode watermark.php yang kita buat sebelumnya pasti berjalan dengan lancar.
